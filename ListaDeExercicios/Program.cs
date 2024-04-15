@@ -390,12 +390,111 @@ namespace ListaDeExercicios
             Console.ReadKey();
         }
 
-        private static void Exercicio6() //Exercício 6: Construir uma calculadora simples com as operações básicas(+,-,*,/).
+        private static void Exercicio6() //**Exercício 6: Construir uma calculadora simples com as operações básicas(+,-,*,/).
         {
             Console.Clear();
             Console.WriteLine("Exercício 6: Construir uma calculadora simples com as operações básicas(+,-,*,/).\n");
 
+            int op = 1;
+            while (op != 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Escolha uma das operações a baixo:\n");
+                Console.WriteLine("1- Soma. (+)");
+                Console.WriteLine("2- Subtração. (-)");
+                Console.WriteLine("3- Multiplicação. (*)");
+                Console.WriteLine("4- Divisão. (/)");
+                Console.WriteLine("0 - Voltar ao menu anterior");
+                op = int.Parse(Console.ReadLine());
 
+
+                if (op == 0)
+                {
+                    break;
+                }
+                else if (op == 1) //Chamada para operação de soma
+                {
+                    Console.Clear();
+                    Console.WriteLine("Operação de soma!\n");
+
+                    Console.WriteLine("Digite um número:");
+                    int soma1 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("Digite outro número:");
+                    int soma2 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.WriteLine($"{soma1} + {soma2}  = " + (soma1 + soma2));
+
+                    Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
+                    Console.ReadKey();
+                }
+                else if (op == 2) //Chamada para operação de subtração
+                {
+                    Console.Clear();
+                    Console.WriteLine("Operação de subtração!\n");
+
+                    Console.WriteLine("Digite um número:");
+                    int subtracao1 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("Digite outro número:");
+                    int subtracao2 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.WriteLine($"{subtracao1} - {subtracao2}  = " + (subtracao1 - subtracao2));
+
+                    Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
+                    Console.ReadKey();
+                }
+                else if (op == 3) //Chamada para operação de multiplicação
+                {
+                    Console.Clear();
+                    Console.WriteLine("Operação de multiplicação!\n");
+
+                    Console.WriteLine("Digite um número:");
+                    int multi1 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("Digite outro número:");
+                    int multi2 = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.WriteLine($"{multi1} * {multi2}  = " + (multi1 * multi2));
+
+                    Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
+                    Console.ReadKey();
+                }
+                else if (op == 4) //Chamada para operação de divisão
+                {
+                    Console.Clear();
+                    Console.WriteLine("Operação de divisão!\n");
+
+                    Console.WriteLine("Digite um número:");
+                    double div1 = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("Digite outro número:");
+                    double div2 = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine();
+                    Console.WriteLine($"{div1} / {div2}  = " + (div1 / div2));
+
+                    Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Opção inválida");
+                    Console.ReadKey();
+                }
+            }
 
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
@@ -421,6 +520,10 @@ namespace ListaDeExercicios
         {
             Console.Clear();
             Console.WriteLine("Exercício 9: Criar uma função que retorne a soma dos digitos de um número.\n");
+
+            //12 = 1 + 2
+            //26 = 2 + 6
+            
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
