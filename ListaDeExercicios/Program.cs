@@ -378,6 +378,7 @@ namespace ListaDeExercicios
             Console.Clear();
             Console.WriteLine("Exercício 5: Criar um programa que inverta uma string.\n");
 
+            Console.WriteLine("Escreva uma palavra.\n");
             string palavra = Console.ReadLine();
 
             for (int i = 0; i < palavra.Length; i++)
@@ -504,6 +505,7 @@ namespace ListaDeExercicios
         {
             Console.Clear();
             Console.WriteLine("Exercício 7: Implementar um programa que valide um CPF.\n");
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
@@ -521,9 +523,25 @@ namespace ListaDeExercicios
             Console.Clear();
             Console.WriteLine("Exercício 9: Criar uma função que retorne a soma dos digitos de um número.\n");
 
-            //12 = 1 + 2
-            //26 = 2 + 6
-            
+
+            Console.WriteLine("Digite um número.\n");
+
+            int num = int.Parse(Console.ReadLine());
+
+            int DigSoma(int numero)
+            {
+                int soma = 0;
+                foreach (char digito in numero.ToString())
+                {
+                    soma += int.Parse(digito.ToString());
+                }
+                return soma;
+            }
+
+            int resultDigSoma = DigSoma(num);
+
+            Console.WriteLine($"A soma dos digitos do número é: {resultDigSoma}");
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
