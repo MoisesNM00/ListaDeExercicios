@@ -383,7 +383,7 @@ namespace ListaDeExercicios
 
             for (int i = 0; i < palavra.Length; i++)
             {
-                System.Console.Write(palavra[palavra.Length - i - 1]);
+                Console.Write(palavra[palavra.Length - i - 1]);
             }
 
             Console.WriteLine();
@@ -501,28 +501,70 @@ namespace ListaDeExercicios
             Console.ReadKey();
         }
 
-        private static void Exercicio7() //Exercício 7: Implementar um programa que valide um CPF.
+        private static void Exercicio7() //?*Exercício 7: Implementar um programa que valide um CPF.
         {
             Console.Clear();
             Console.WriteLine("Exercício 7: Implementar um programa que valide um CPF.\n");
 
+            Console.WriteLine("Escreva um cpf sem traço, pontos e barra.\n");
+            string cpf = Console.ReadLine();
+            bool cpfValido = ValidarCPF(cpf);
+
+            if (cpfValido)
+            {
+                Console.WriteLine("CPF válido!");
+            }
+
+            else
+            {
+                Console.WriteLine("CPF inválido!");
+            }
+        
+
+            bool ValidarCPF(string numCpf)
+            {
+                numCpf = new string(numCpf.Where(char.IsDigit).ToArray());
+
+                if (numCpf.Length != 11)
+                {
+                    return false;
+                }
+
+                if (numCpf.Distinct().Count() == 1)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+            }
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio8() //Exercício 8: Escrever um programa que conte quantas palavras há em uma frase.
+        private static void Exercicio8() //**Exercício 8: Escrever um programa que conte quantas palavras há em uma frase.
         {
             Console.Clear();
             Console.WriteLine("Exercício 8: Escrever um programa que conte quantas palavras há em uma frase.\n");
+
+            Console.WriteLine("Escreva uma frase.\n");
+            string frase = Console.ReadLine();
+
+            int numeroPalavras = frase.Split(' ').Length;
+
+            Console.WriteLine($"\nA frase tem: {numeroPalavras} palavras");
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio9() //Exercício 9: Criar uma função que retorne a soma dos digitos de um número.
+        private static void Exercicio9() //**Exercício 9: Criar uma função que retorne a soma dos digitos de um número.
         {
             Console.Clear();
             Console.WriteLine("Exercício 9: Criar uma função que retorne a soma dos digitos de um número.\n");
-
 
             Console.WriteLine("Digite um número.\n");
 
@@ -554,61 +596,176 @@ namespace ListaDeExercicios
             Console.ReadKey();
         }
 
-        private static void Exercicio11() //Exercício 11: Construir um programa que calcule a área de um triangulo.
+        private static void Exercicio11() //**Exercício 11: Construir um programa que calcule a área de um triangulo.
         {
             Console.Clear();
             Console.WriteLine("Exercício 11: Construir um programa que calcule a área de um triangulo.\n");
 
+            Console.WriteLine("Digite o valor do comprimento da base do triagulo:");
+            int baseTriangulo = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("\nDigite o valor da altura do triagulo:");
+            int alturaTriangulo = int.Parse(Console.ReadLine());
+
+            decimal areaTriangulo = baseTriangulo * alturaTriangulo / 2;
+
+            Console.WriteLine();
+            
+            Console.WriteLine($"A área do triângulo é = {areaTriangulo}");
 
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio12() //Exercício 12: Escrever um código que verifique se um ano é bissexto.
+        private static void Exercicio12() //**Exercício 12: Escrever um código que verifique se um ano é bissexto.
         {
             Console.Clear();
             Console.WriteLine("Exercício 12: Escrever um código que verifique se um ano é bissexto.\n");
+
+            Console.WriteLine("Escreva um ano.\n");
+            int ano = int.Parse(Console.ReadLine());
+            bool anoBissexto = DateTime.IsLeapYear(ano);
+
+            if (anoBissexto == true)
+            {
+                Console.WriteLine($"O ano {ano} é bissexto.\n");
+            }
+            else
+            {
+                Console.WriteLine($"O ano {ano} não é bissexto.\n");
+            }
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio13() //Exercício 13: Implementar um programa que encontre o maior elemento de um array.
+        private static void Exercicio13() //**Exercício 13: Implementar um programa que encontre o maior elemento de um array.
         {
             Console.Clear();
-            Console.WriteLine("Exercício 13: Implementar um programa que encontre o maior elemento de um array.\n");
+            Console.WriteLine("Exercício 13: Implementar um programa que encontre o maior elemento (Número) de um array.\n");
+
+            Console.WriteLine("Escrava 5 números entre -100 até 100\n");
+
+            Console.WriteLine("\nPrimeiro número:");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nSegundo número:");
+            int num2 = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("\nTerceiro número:");
+            int num3 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuarto número:");
+            int num4 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuinto número:");
+            int num5 = int.Parse(Console.ReadLine());
+
+            int[] numeros = { num1, num2, num3, num4, num5 };
+            int maiorNumero = numeros.Max();
+
+            Console.WriteLine($"\nO maior número é: {maiorNumero}");
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio14() //Exercício 14: Criar uma função que verifique se uma palavra é um palindromo.
+        private static void Exercicio14() //**Exercício 14: Criar uma função que verifique se uma palavra é um palindromo.
         {
             Console.Clear();
             Console.WriteLine("Exercício 14: Criar uma função que verifique se uma palavra é um palindromo.\n");
+
+            Console.WriteLine("Escreva uma palavra.\n");
+            string palavra = Console.ReadLine();
+
+            string palavraInvertida = new string(palavra.Reverse().ToArray());
+
+            Console.WriteLine($"Texto Normal   : {palavra}");
+            Console.WriteLine($"Texto Invertido: {palavraInvertida}\n");
+
+            string palavraMinuscula = palavra.ToLower();
+
+            string palavraInvertidaMinuscula = new string(palavraMinuscula.Reverse().ToArray());
+
+            if (palavraMinuscula == palavraInvertidaMinuscula)
+            {
+                Console.WriteLine($"A palavra: {palavra}, é um palindromo");
+            }
+            else
+            {
+                Console.WriteLine($"A palavra: {palavra}, não é um palindromo");
+            }
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio15() //Exercício 15: Construir um programa que solicite ao usuario um valor e informe se é positivo ou negativo.
+        private static void Exercicio15() //**Exercício 15: Construir um programa que solicite ao usuario um valor e informe se é positivo ou negativo.
         {
             Console.Clear();
             Console.WriteLine("Exercício 15: Construir um programa que solicite ao usuario um valor e informe se é positivo ou negativo.\n");
+
+            Console.WriteLine("Escrava um número entre -100 até 100\n");
+
+            int num = int.Parse(Console.ReadLine());
+
+            if (num >= 0)
+            {
+                Console.WriteLine($"\nO número {num} é maior que 0, portanto é positivo");
+            }
+            else if (num == 0)
+            {
+                Console.WriteLine($"\nO número {num} é 0, portanto não é positivo nem negativo, mas sim neutro");
+            }            
+            else
+            {
+                Console.WriteLine($"\nO número {num} é menor que 0, portanto é negativo");
+            };
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio16() //Exercício 16: Escrever um código que calcule o fatorial de um número.
+        private static void Exercicio16() //**Exercício 16: Escrever um código que calcule o fatorial de um número.
         {
             Console.Clear();
             Console.WriteLine("Exercício 16: Escrever um código que calcule o fatorial de um número.\n");
+
+            Console.WriteLine("Escreva um numero.\n");
+            int num = int.Parse(Console.ReadLine());
+            int fatorial = 1;
+
+            for (int i = 1; i <= num; i++)
+            {
+                fatorial *= i;
+            }
+
+            Console.WriteLine($"\nO fatorial de {num} é: {fatorial}");
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio17() //Exercício 17: Implementar um programa que verifique se um numero é multiplo de outro.
+        private static void Exercicio17() //**Exercício 17: Implementar um programa que verifique se um numero é multiplo de outro.
         {
             Console.Clear();
             Console.WriteLine("Exercício 17: Implementar um programa que verifique se um numero é multiplo de outro.\n");
+
+            Console.WriteLine("Escrava um número\n");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Escrava outro número\n");
+            int num2 = int.Parse(Console.ReadLine());
+
+            if (num1 % num2 == 0)
+            {
+                Console.WriteLine($"\nO número {num1} é multiplo de {num2}");
+            }
+            else
+            {
+                Console.WriteLine($"\nO número {num1} não é multiplo de {num2}");
+            };
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
