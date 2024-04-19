@@ -588,10 +588,38 @@ namespace ListaDeExercicios
             Console.ReadKey();
         }
 
-        private static void Exercicio10() //Exercício 10: Implementar um programa que ordene um array de números.
+        private static void Exercicio10() //**Exercício 10: Implementar um programa que ordene um array de números.
         {
             Console.Clear();
             Console.WriteLine("Exercício 10: Implementar um programa que ordene um array de números.\n");
+
+            Console.WriteLine("Escrava 5 números entre -100 e 100");
+
+            Console.WriteLine("\nPrimeiro número:");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nSegundo número:");
+            int num2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nTerceiro número:");
+            int num3 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuarto número:");
+            int num4 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuinto número:");
+            int num5 = int.Parse(Console.ReadLine());
+
+            int[] numeros = { num1, num2, num3, num4, num5 };
+            Array.Sort(numeros);
+
+            Console.WriteLine("\nA ordem crescente dos números é:\n");
+
+            foreach (int elemento in numeros)
+            {
+                Console.Write($" {elemento}");
+            }
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
@@ -644,7 +672,7 @@ namespace ListaDeExercicios
             Console.Clear();
             Console.WriteLine("Exercício 13: Implementar um programa que encontre o maior elemento (Número) de um array.\n");
 
-            Console.WriteLine("Escrava 5 números entre -100 até 100\n");
+            Console.WriteLine("Escrava 5 números entre -100 e 100");
 
             Console.WriteLine("\nPrimeiro número:");
             int num1 = int.Parse(Console.ReadLine());
@@ -770,30 +798,90 @@ namespace ListaDeExercicios
             Console.ReadKey();
         }
 
-        private static void Exercicio18() //Exercício 18: Criar uma função que conte quantas vezes um determinado caractere aparece em uma string.
+        private static void Exercicio18() //**Exercício 18: Criar uma função que conte quantas vezes um determinado caractere aparece em uma string.
         {
             Console.Clear();
             Console.WriteLine("Exercício 18: Criar uma função que conte quantas vezes um determinado caractere aparece em uma string.\n");
 
-            //string palavra = "a";
-            //string palavra1 = ;
+            int ContarCaractere(string texto, char caractere)
+            {
+                return texto.Count(c => c == caractere);
+            }
+
+            Console.WriteLine("Escreva uma frase:");
+            string meuTexto = Console.ReadLine();
+
+            Console.WriteLine("\nEscreva uma letra:");
+            char meuCaractere = char.Parse(Console.ReadLine());
+
+            int quantidade = ContarCaractere(meuTexto, meuCaractere);
+
+            Console.WriteLine($"\nO caractere: {meuCaractere} aparece: {quantidade} vezes na frase.");
 
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio19() //Exercício 19: Construir um programa que ordene os elementos de uma matriz.
+        private static void Exercicio19() //**Exercício 19: Construir um programa que ordene os elementos de uma matriz.
         {
             Console.Clear();
-            Console.WriteLine("Exercício 19: Construir um programa que ordene os elementos de uma matriz.\n");
-            Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
+            Console.WriteLine("Exercício 19: Construir um programa que ordene os elementos (Números) de uma matriz.\n");
+
+            Console.WriteLine("Escrava 5 números entre -100 e 100");
+
+            Console.WriteLine("\nPrimeiro número:");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nSegundo número:");
+            int num2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nTerceiro número:");
+            int num3 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuarto número:");
+            int num4 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nQuinto número:");
+            int num5 = int.Parse(Console.ReadLine());
+
+            int[] matriz = { num1, num2, num3, num4, num5 };
+            Array.Sort(matriz);
+
+            Console.WriteLine("\nA ordem crescente dos números é:\n");
+
+            foreach (int elemento in matriz)
+            {
+                Console.Write($" {elemento}");
+            }
+
+            Console.WriteLine("\n\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
 
-        private static void Exercicio20() //Exercício 20: Escrever um código que valide um email.
+        private static void Exercicio20() //**Exercício 20: Escrever um código que valide um email.
         {
             Console.Clear();
             Console.WriteLine("Exercício 20: Escrever um código que valide um email.\n");
+
+            Console.WriteLine("Escreva um email:\n");
+            string email = Console.ReadLine();
+            bool emailValido = ValidarEmail(email);
+
+            if (emailValido)
+            {
+                Console.WriteLine($"\nO email: {email}, é válido!");
+            }
+            else
+            {
+                Console.WriteLine($"\nO email: {email}, não é válido!");
+            }
+
+            bool ValidarEmail(string emailValid)
+            {
+                string emailPadrao = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+                return System.Text.RegularExpressions.Regex.IsMatch(emailValid, emailPadrao);
+            }
+
             Console.WriteLine("\n(Precione qualquer tecla para voltar ao menu!)");
             Console.ReadKey();
         }
